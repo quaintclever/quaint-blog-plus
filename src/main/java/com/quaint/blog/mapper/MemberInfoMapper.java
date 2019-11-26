@@ -1,8 +1,8 @@
 package com.quaint.blog.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.quaint.blog.dto.member.CheckLoginReqDto;
 import com.quaint.blog.po.MemberInfoPo;
-import org.apache.ibatis.annotations.Mapper;
 
 /**
  * @Description:
@@ -11,6 +11,6 @@ import org.apache.ibatis.annotations.Mapper;
  */
 public interface MemberInfoMapper extends BaseMapper<MemberInfoPo> {
 
-
+    MemberInfoPo checkLogin(CheckLoginReqDto dto);
 
 }

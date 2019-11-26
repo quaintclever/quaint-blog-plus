@@ -19,6 +19,13 @@ public class MemberInfoPo {
     @TableField("nack_name")
     private String nackName;
 
+    @TableField("username")
+    private String username;
+
+    @TableField("password")
+    private String password;
+
+
     public Integer getId() {
         return id;
     }
@@ -35,11 +42,29 @@ public class MemberInfoPo {
         this.nackName = nackName;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public String toString() {
         return "MemberInfoPo{" +
                 "id=" + id +
                 ", nackName='" + nackName + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }
