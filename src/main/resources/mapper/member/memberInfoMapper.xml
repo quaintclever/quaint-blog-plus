@@ -6,7 +6,7 @@
         select * from
           member_info
         where
-          username = #{dto.getUsername} and password = #{dto.getPassword}
+          username = #{username} and password = #{password}
         limit 1
     </select>
 

@@ -5,9 +5,7 @@ import com.quaint.blog.dto.member.CheckLoginReqDto;
 import com.quaint.blog.po.MemberInfoPo;
 import com.quaint.blog.service.MemberInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,10 +30,11 @@ public class MemberInfoController {
     }
 
     /**
-     * 登录校验
+     * 登录校验 测试代码
      */
     @PostMapping(MemberConstant.CHECK_LOGIN)
-    public boolean checkLogin(CheckLoginReqDto dto){
+    public boolean checkLogin(@RequestBody CheckLoginReqDto dto){
+//        System.out.println(dto.toString());
         return memberInfoService.checkLogin(dto);
     }
 

@@ -7,6 +7,6 @@ package com.quaint.blog.constant;
  */
 public class MemberConstant {
 
-    public static final String CHECK_LOGIN = "member/check/login";
+    public static final String CHECK_LOGIN = "/member/check/login"; // 登陆校验
 
 }
