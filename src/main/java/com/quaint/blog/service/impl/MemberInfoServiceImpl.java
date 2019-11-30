@@ -2,9 +2,11 @@ package com.quaint.blog.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.quaint.blog.dto.member.CheckLoginReqDto;
+import com.quaint.blog.dto.member.CheckLoginRespDto;
 import com.quaint.blog.mapper.MemberInfoMapper;
 import com.quaint.blog.po.MemberInfoPo;
 import com.quaint.blog.service.MemberInfoService;
+import com.quaint.blog.utils.MapperUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,10 +31,13 @@ public class MemberInfoServiceImpl implements MemberInfoService {
     }
 
     @Override
-    public boolean checkLogin(CheckLoginReqDto dto) {
-        if (Objects.nonNull(memberInfoMapper.checkLogin(dto)))
-            return true;
-        return false;
+    public CheckLoginRespDto checkLogin(CheckLoginReqDto dto) {
+        MemberInfoPo memberPo = memberInfoMapper.checkLogin(dto);
+        if (Objects.nonNull(memberPo)){
+            System.out.println(MapperUtils.map(memberPo,CheckLoginRespDto.class).toString());
+            return MapperUtils.map(memberPo,CheckLoginRespDto.class);
+        }
+        return null;
     }
 
 }

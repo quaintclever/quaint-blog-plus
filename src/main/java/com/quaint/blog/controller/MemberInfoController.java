@@ -2,6 +2,7 @@ package com.quaint.blog.controller;
 
 import com.quaint.blog.constant.MemberConstant;
 import com.quaint.blog.dto.member.CheckLoginReqDto;
+import com.quaint.blog.dto.member.CheckLoginRespDto;
 import com.quaint.blog.po.MemberInfoPo;
 import com.quaint.blog.service.MemberInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,7 @@ public class MemberInfoController {
      * 登录校验 测试代码
      */
     @PostMapping(MemberConstant.CHECK_LOGIN)
-    public boolean checkLogin(@RequestBody CheckLoginReqDto dto){
+    public CheckLoginRespDto checkLogin(@RequestBody CheckLoginReqDto dto){
 //        System.out.println(dto.toString());
         return memberInfoService.checkLogin(dto);
     }

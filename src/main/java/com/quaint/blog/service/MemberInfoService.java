@@ -1,6 +1,7 @@
 package com.quaint.blog.service;
 
 import com.quaint.blog.dto.member.CheckLoginReqDto;
+import com.quaint.blog.dto.member.CheckLoginRespDto;
 import com.quaint.blog.po.MemberInfoPo;
 
 import java.util.List;
@@ -16,6 +17,6 @@ public interface MemberInfoService {
     List<MemberInfoPo> getMemberList();
 
     // 登录校验接口
-    boolean checkLogin(CheckLoginReqDto dto);
+    CheckLoginRespDto checkLogin(CheckLoginReqDto dto);
 
 }

@@ -28,6 +28,7 @@
         <!--<mybatis-spring-boot-starter.version>1.3.2</mybatis-spring-boot-starter.version>-->
         <mybatis-plus.version>3.0-RC2</mybatis-plus.version>
         <lombok.version>1.16.10</lombok.version>
+        <modelmapper.version>2.3.2</modelmapper.version>
     </properties>
 
     <!-- 引入依赖 -->
@@ -76,6 +77,14 @@
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>${mybatis-plus.version}</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.modelmapper/modelmapper -->
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>${modelmapper.version}</version>
+        </dependency>
+
 
     </dependencies>
 
