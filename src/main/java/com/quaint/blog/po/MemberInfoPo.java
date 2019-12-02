@@ -16,8 +16,8 @@ public class MemberInfoPo {
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    @TableField("nack_name")
-    private String nackName;
+    @TableField("nick_name")
+    private String nickName;
 
     @TableField("username")
     private String username;
@@ -34,12 +34,12 @@ public class MemberInfoPo {
         this.id = id;
     }
 
-    public String getNackName() {
-        return nackName;
+    public String getNickName() {
+        return nickName;
     }
 
-    public void setNackName(String nackName) {
-        this.nackName = nackName;
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 
     public String getUsername() {
@@ -62,7 +62,7 @@ public class MemberInfoPo {
     public String toString() {
         return "MemberInfoPo{" +
                 "id=" + id +
-                ", nackName='" + nackName + '\'' +
+                ", nickName='" + nickName + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 '}';

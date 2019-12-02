@@ -14,6 +14,8 @@ public class RandomUtils {
     public static final String LETTER_CHAR = "abcdefghijkllmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     public static final String NUMBER_CHAR = "0123456789";
 
+    private RandomUtils() {
+    }
 
     /**
      * 生成指定范围内的随机数
