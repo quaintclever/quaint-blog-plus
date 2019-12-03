@@ -1,9 +1,10 @@
 package com.quaint.blog.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.quaint.blog.dto.member.CheckLoginReqDto;
+import com.quaint.blog.dto.web.article.GetArticleListRespDto;
 import com.quaint.blog.po.ArticleInfoPo;
-import com.quaint.blog.po.MemberInfoPo;
+
+import java.util.List;
 
 /**
  * @Description:
@@ -12,5 +13,8 @@ import com.quaint.blog.po.MemberInfoPo;
  */
 public interface ArticleInfoMapper extends BaseMapper<ArticleInfoPo> {
 
+    List<GetArticleListRespDto> getHomeArticleList();
+
+    List<GetArticleListRespDto> getArticleList();
 
 }

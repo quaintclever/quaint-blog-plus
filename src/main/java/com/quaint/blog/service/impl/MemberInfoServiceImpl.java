@@ -1,8 +1,8 @@
 package com.quaint.blog.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.quaint.blog.dto.member.CheckLoginReqDto;
-import com.quaint.blog.dto.member.CheckLoginRespDto;
+import com.quaint.blog.dto.admin.member.CheckLoginReqDto;
+import com.quaint.blog.dto.admin.member.CheckLoginRespDto;
 import com.quaint.blog.mapper.MemberInfoMapper;
 import com.quaint.blog.po.MemberInfoPo;
 import com.quaint.blog.service.MemberInfoService;

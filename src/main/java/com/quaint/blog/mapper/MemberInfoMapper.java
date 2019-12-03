@@ -1,7 +1,7 @@
 package com.quaint.blog.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.quaint.blog.dto.member.CheckLoginReqDto;
+import com.quaint.blog.dto.admin.member.CheckLoginReqDto;
 import com.quaint.blog.po.MemberInfoPo;
 
 /**

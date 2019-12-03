@@ -1,7 +1,7 @@
 package com.quaint.blog.service;
 
-import com.quaint.blog.dto.member.CheckLoginReqDto;
-import com.quaint.blog.dto.member.CheckLoginRespDto;
+import com.quaint.blog.dto.admin.member.CheckLoginReqDto;
+import com.quaint.blog.dto.admin.member.CheckLoginRespDto;
 import com.quaint.blog.po.MemberInfoPo;
 
 import java.util.List;

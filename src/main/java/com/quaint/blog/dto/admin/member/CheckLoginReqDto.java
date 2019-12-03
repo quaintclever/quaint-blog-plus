@@ -1,4 +1,4 @@
-package com.quaint.blog.dto.member;
+package com.quaint.blog.dto.admin.member;
 
 import lombok.Data;
 

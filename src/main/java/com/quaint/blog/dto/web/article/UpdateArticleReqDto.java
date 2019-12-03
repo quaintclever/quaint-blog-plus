@@ -1,4 +1,4 @@
-package com.quaint.blog.dto.article;
+package com.quaint.blog.dto.web.article;
 
 import lombok.Data;
 

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.quaint.blog.mapper.ArticleInfoMapper">
+
+    <select id="getHomeArticleList" resultType="com.quaint.blog.dto.web.article.GetArticleListRespDto">
+        select * from article_info
+        where show_home = 1
+    </select>
+    <select id="getArticleList" resultType="com.quaint.blog.dto.web.article.GetArticleListRespDto">
+        select * from article_info
+    </select>
+
+
+</mapper>
