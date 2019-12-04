@@ -1,5 +1,7 @@
 package com.quaint.blog.service;
 
+import com.quaint.blog.dto.base.IdReqDto;
+import com.quaint.blog.dto.web.article.ArticleInfoRespDto;
 import com.quaint.blog.dto.web.article.GetArticleListRespDto;
 
 import java.util.List;
@@ -12,7 +14,7 @@ import java.util.List;
 public interface ArticleInfoService {
 
     /**
-     *  获取 首页文章展示列表 （后期处理分页）
+     *  获取 首页文章展示列表
      * @return
      */
     List<GetArticleListRespDto> getHomeArticleList();
@@ -22,5 +24,14 @@ public interface ArticleInfoService {
      * @return
      */
     List<GetArticleListRespDto> getArticleList();
+
+    /**
+     * 通过文章id 获取文章信息
+     * @param idReqDto
+     * @return
+     */
+    ArticleInfoRespDto getArticleById(IdReqDto idReqDto);
+
+
 
 }

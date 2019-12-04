@@ -1,6 +1,7 @@
 package com.quaint.blog.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.quaint.blog.dto.web.article.ArticleInfoRespDto;
 import com.quaint.blog.dto.web.article.GetArticleListRespDto;
 import com.quaint.blog.po.ArticleInfoPo;
 
@@ -16,5 +17,7 @@ public interface ArticleInfoMapper extends BaseMapper<ArticleInfoPo> {
     List<GetArticleListRespDto> getHomeArticleList();
 
     List<GetArticleListRespDto> getArticleList();
+
+    ArticleInfoRespDto getArticleById(Integer id);
 
 }

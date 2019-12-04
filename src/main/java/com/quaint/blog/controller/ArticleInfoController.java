@@ -1,9 +1,13 @@
 package com.quaint.blog.controller;
 
 import com.quaint.blog.constant.ArticleConstant;
+import com.quaint.blog.dto.base.IdReqDto;
+import com.quaint.blog.dto.web.article.ArticleInfoRespDto;
 import com.quaint.blog.dto.web.article.GetArticleListRespDto;
 import com.quaint.blog.service.ArticleInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,9 +29,14 @@ public class ArticleInfoController {
         return articleInfoService.getHomeArticleList();
     }
 
-    @RequestMapping(ArticleConstant.WEB_ARTICLE_LIST)
+    @PostMapping(ArticleConstant.WEB_ARTICLE_LIST)
     public List<GetArticleListRespDto> getArticleList(){
         return articleInfoService.getArticleList();
+    }
+
+    @PostMapping(ArticleConstant.WEB_ARTICLE_BY_ID)
+    public ArticleInfoRespDto getArticleById(@RequestBody IdReqDto idReqDto){
+        return articleInfoService.getArticleById(idReqDto);
     }
 
 }

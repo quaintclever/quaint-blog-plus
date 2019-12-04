@@ -7,16 +7,14 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 /**
- * @Description: 首页展示的文章列表 dto
+ * @Description:
  * @author: qi cong
- * @Date: Created in 2019-12-03 17:29
+ * @Date: Created in 2019-11-28 10:06
  */
 @Data
-public class GetArticleListRespDto {
+public class ArticleInfoRespDto {
 
     private Integer id;
-
-    private Integer memberId;
 
     // '文章标题'
     private String articleTitle;
@@ -24,18 +22,25 @@ public class GetArticleListRespDto {
     // '文章简介，摘要'
     private String articleAbstract;
 
-    // '首页主图url'
-    private String mainImageUrl;
-
-    // '标签 eg： 1,2,3 --> 博客,技术,java'
-    private List<String> labels;
-
     // '阅读数'
     private Long readNum;
+
+    // '文章内容'
+    private String articleContent;
 
     // '修改时间'
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private LocalDateTime updateTime;
+
+    // --- 关联字段 ---
+    // '作者id'
+    private Integer memberId;
+
+    // 作者名称
+    private String nickName;
+
+    // 标签名称
+    private List<String> labels;
 
 
 

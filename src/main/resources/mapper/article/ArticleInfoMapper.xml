@@ -2,12 +2,95 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.quaint.blog.mapper.ArticleInfoMapper">
 
-    <select id="getHomeArticleList" resultType="com.quaint.blog.dto.web.article.GetArticleListRespDto">
-        select * from article_info
-        where show_home = 1
+    <!-- 文章列表map -->
+    <resultMap id="GetArticleListRespDto" type="com.quaint.blog.dto.web.article.GetArticleListRespDto">
+        <id property="id" column="id"/>
+        <result property="articleTitle" column="article_title"/>
+        <result property="articleAbstract" column="article_abstract"/>
+        <result property="mainImageUrl" column="main_image_url"/>
+        <result property="memberId" column="member_id"/>
+        <result property="readNum" column="read_num"/>
+        <result property="updateTime" column="update_time"/>
+        <collection property="labels" ofType="java.lang.String">
+            <constructor>
+                <arg column="label_name"/>
+            </constructor>
+        </collection>
+    </resultMap>
+    <!-- 文章详情map -->
+    <resultMap id="ArticleInfoRespDto" type="com.quaint.blog.dto.web.article.ArticleInfoRespDto">
+        <id property="id" column="id"/>
+        <result property="articleTitle" column="article_title"/>
+        <result property="articleAbstract" column="article_abstract"/>
+        <result property="articleContent" column="article_content"/>
+        <result property="memberId" column="member_id"/>
+        <result property="nickName" column="nick_name"/>
+        <result property="readNum" column="read_num"/>
+        <result property="updateTime" column="update_time"/>
+        <collection property="labels" ofType="java.lang.String">
+            <constructor>
+                <arg column="label_name"/>
+            </constructor>
+        </collection>
+    </resultMap>
+
+
+
+    <select id="getHomeArticleList" resultMap="GetArticleListRespDto">
+        SELECT
+            ai_t.id,
+            ai_t.article_title,
+            ai_t.article_abstract,
+            ai_t.member_id,
+            ai_t.read_num,
+            ai_t.main_image_url,
+            ai_t.update_time,
+            li_t.label_name
+        FROM
+            article_info ai_t
+            LEFT JOIN article_link_label all_t ON ai_t.id = all_t.article_id
+            LEFT JOIN label_info li_t ON all_t.label_id = li_t.id
+        WHERE
+            ai_t.show_home = 1
+        ORDER BY
+            ai_t.create_time DESC
     </select>
-    <select id="getArticleList" resultType="com.quaint.blog.dto.web.article.GetArticleListRespDto">
-        select * from article_info
+    <select id="getArticleList" resultMap="GetArticleListRespDto">
+        SELECT
+            ai_t.id,
+            ai_t.article_title,
+            ai_t.article_abstract,
+            ai_t.member_id,
+            ai_t.read_num,
+            ai_t.main_image_url,
+            ai_t.update_time,
+            li_t.label_name
+        FROM
+            article_info ai_t
+            LEFT JOIN article_link_label all_t ON ai_t.id = all_t.article_id
+            LEFT JOIN label_info li_t ON all_t.label_id = li_t.id
+        ORDER BY
+            ai_t.create_time DESC
+    </select>
+    <select id="getArticleById" resultMap="ArticleInfoRespDto">
+        SELECT
+            ai_t.id,
+            ai_t.article_title,
+            ai_t.article_abstract,
+            ai_t.member_id,
+            ai_t.read_num,
+            ai_t.article_content,
+            ai_t.update_time,
+            mi_t.nick_name,
+            li_t.label_name
+        FROM
+            article_info ai_t
+            LEFT JOIN member_info mi_t ON ai_t.member_id = mi_t.id
+            LEFT JOIN article_link_label all_t ON ai_t.id = all_t.article_id
+            LEFT JOIN label_info li_t ON all_t.label_id = li_t.id
+        WHERE
+            ai_t.id = #{id}
+
     </select>
 
 

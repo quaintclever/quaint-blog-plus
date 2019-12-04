@@ -34,9 +34,6 @@ public class ArticleInfoPo {
     // '作者id'
     private Integer memberId;
 
-    // '标签 eg： 1,2,3 --> 博客,技术,java'
-    private String label;
-
     // '阅读数'
     private Long readNum;
 
