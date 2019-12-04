@@ -42,6 +42,11 @@ public class ArticleInfoRespDto {
     // 标签名称
     private List<String> labels;
 
+    // --- 扩展字段 ---
+    // 上一篇
+    private ArticleIdAndNameRespDto up;
+    // 下一篇
+    private ArticleIdAndNameRespDto down;
 
 
 }

@@ -92,6 +92,19 @@
             ai_t.id = #{id}
 
     </select>
+    <select id="getArticleUpAndDown" resultType="com.quaint.blog.dto.web.article.ArticleIdAndNameRespDto">
+        select id,article_title
+        from article_info
+        <choose>
+            <when test="type==0">
+                where id &lt; #{id} order by id desc
+            </when>
+            <otherwise>
+                where id &gt; #{id} order by id asc
+            </otherwise>
+        </choose>
+        limit 1
+    </select>
 
 
 </mapper>
