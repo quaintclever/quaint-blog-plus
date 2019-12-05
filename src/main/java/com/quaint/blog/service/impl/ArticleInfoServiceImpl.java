@@ -7,11 +7,14 @@ import com.quaint.blog.dto.web.article.GetArticleListRespDto;
 import com.quaint.blog.mapper.ArticleInfoMapper;
 import com.quaint.blog.po.ArticleInfoPo;
 import com.quaint.blog.service.ArticleInfoService;
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
 
 /**
  * @Description:
@@ -20,6 +23,8 @@ import java.util.function.Consumer;
  */
 @Service
 public class ArticleInfoServiceImpl implements ArticleInfoService {
+
+    private static final Logger logger = LoggerFactory.getLogger(ArticleInfoServiceImpl.class);
 
     @Autowired
     ArticleInfoMapper articleInfoMapper;
@@ -61,6 +66,23 @@ public class ArticleInfoServiceImpl implements ArticleInfoService {
         // 获取相关文章list
         respDto.setSameArticles(articleInfoMapper.getSameArticleList(idReqDto.getId()));
         return respDto;
+    }
+
+    /**
+     * blog-1.0.1【 通过关键字搜索文章 】
+     * Be used for [Find in Path...]
+     * Keymap --> (shift+control+F)
+     */
+    @Override
+    public List<GetArticleListRespDto> getArticleBySearch(String str) {
+
+        logger.info("通过关键字搜索入参：str:[{}]",str);
+        if (StringUtils.isEmpty(str)){
+            logger.info("搜索内容不能为空,直接返回所有的文章列表");
+            return getArticleList();
+        }
+        List<GetArticleListRespDto> list = articleInfoMapper.getSearchArticleByContent(str);
+        return list;
     }
 
 

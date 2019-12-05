@@ -3,6 +3,7 @@ package com.quaint.blog.controller;
 import com.quaint.blog.constant.ArticleConstant;
 import com.quaint.blog.dto.base.IdReqDto;
 import com.quaint.blog.dto.web.article.ArticleInfoRespDto;
+import com.quaint.blog.dto.web.article.ArticleSearchReqDto;
 import com.quaint.blog.dto.web.article.GetArticleListRespDto;
 import com.quaint.blog.service.ArticleInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,11 @@ public class ArticleInfoController {
     @PostMapping(ArticleConstant.WEB_ARTICLE_BY_ID)
     public ArticleInfoRespDto getArticleById(@RequestBody IdReqDto idReqDto){
         return articleInfoService.getArticleById(idReqDto);
+    }
+
+    @PostMapping(ArticleConstant.WEB_ARTICLE_SEARCH)
+    public List<GetArticleListRespDto> getArticleBySearch(@RequestBody ArticleSearchReqDto dto){
+        return articleInfoService.getArticleBySearch(dto.getSearchKey());
     }
 
 }

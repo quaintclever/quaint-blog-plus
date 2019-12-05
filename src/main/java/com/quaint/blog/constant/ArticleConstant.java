@@ -13,6 +13,7 @@ public class ArticleConstant {
     public static final String WEB_HOME_ARTICLE_LIST = "/home/article/list"; // 首页展示的文章列表（展示的不多，无需分页）
     public static final String WEB_ARTICLE_LIST = "/article/list"; // 文章列表
     public static final String WEB_ARTICLE_BY_ID = "/article/id"; // 文章详情
+    public static final String WEB_ARTICLE_SEARCH = "/article/search"; // 文章搜索
 
 
 

@@ -27,4 +27,6 @@ public interface ArticleInfoMapper extends BaseMapper<ArticleInfoPo> {
 
     List<ArticleIdAndNameRespDto> getSameArticleList(Integer id);
 
+    List<GetArticleListRespDto> getSearchArticleByContent(String str);
+
 }

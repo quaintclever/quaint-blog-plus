@@ -32,6 +32,11 @@ public interface ArticleInfoService {
      */
     ArticleInfoRespDto getArticleById(IdReqDto idReqDto);
 
-
+    /**
+     * 通过关键字，搜索文章
+     * @param str
+     * @return
+     */
+    List<GetArticleListRespDto> getArticleBySearch(String str);
 
 }

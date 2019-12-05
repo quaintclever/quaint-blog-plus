@@ -120,5 +120,26 @@
             article_id
     </select>
 
+    <select id="getSearchArticleByContent" resultMap="GetArticleListRespDto">
+        SELECT
+            ai_t.id,
+            ai_t.article_title,
+            ai_t.article_abstract,
+            ai_t.member_id,
+            ai_t.read_num,
+            ai_t.main_image_url,
+            ai_t.update_time,
+            li_t.label_name
+        FROM
+            article_info ai_t
+            LEFT JOIN article_link_label all_t ON ai_t.id = all_t.article_id
+            LEFT JOIN label_info li_t ON all_t.label_id = li_t.id
+        WHERE
+            article_title LIKE CONCAT('%',#{str},'%')
+            OR article_content LIKE CONCAT('%',#{str},'%')
+        ORDER BY
+            ai_t.create_time DESC
+    </select>
+
 
 </mapper>
