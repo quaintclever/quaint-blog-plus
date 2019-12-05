@@ -47,6 +47,8 @@ public class ArticleInfoRespDto {
     private ArticleIdAndNameRespDto up;
     // 下一篇
     private ArticleIdAndNameRespDto down;
+    // 相关文章
+    private List<ArticleIdAndNameRespDto> sameArticles;
 
 
 }

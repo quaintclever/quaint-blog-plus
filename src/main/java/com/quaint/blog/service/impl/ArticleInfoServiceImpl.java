@@ -57,6 +57,9 @@ public class ArticleInfoServiceImpl implements ArticleInfoService {
         ArticleIdAndNameRespDto down = articleInfoMapper.getArticleUpAndDown(idReqDto.getId(),1);
         respDto.setUp(up);
         respDto.setDown(down);
+
+        // 获取相关文章list
+        respDto.setSameArticles(articleInfoMapper.getSameArticleList(idReqDto.getId()));
         return respDto;
     }
 

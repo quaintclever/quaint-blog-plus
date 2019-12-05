@@ -106,5 +106,19 @@
         limit 1
     </select>
 
+    <select id="getSameArticleList" resultType="com.quaint.blog.dto.web.article.ArticleIdAndNameRespDto">
+        SELECT
+            all_t.article_id AS id,
+            ai_t.article_title
+        FROM
+            article_link_label all_t
+            LEFT JOIN article_info ai_t ON all_t.article_id = ai_t.id
+        WHERE
+            label_id IN ( SELECT label_id FROM article_link_label WHERE article_id = #{id} )
+            AND article_id != #{id}
+        GROUP BY
+            article_id
+    </select>
+
 
 </mapper>

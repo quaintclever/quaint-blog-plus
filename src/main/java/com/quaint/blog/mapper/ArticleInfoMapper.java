@@ -25,4 +25,6 @@ public interface ArticleInfoMapper extends BaseMapper<ArticleInfoPo> {
 
     ArticleIdAndNameRespDto getArticleUpAndDown(@Param("id") Integer id, @Param("type") Integer type);
 
+    List<ArticleIdAndNameRespDto> getSameArticleList(Integer id);
+
 }
