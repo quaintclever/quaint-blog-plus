@@ -12,4 +12,9 @@ public class ArticleIdAndNameRespDto {
 
     private Integer id;
     private String articleTitle;
+
+    // 点击排行文章使用  摘要
+    private String articleAbstract;
+    private String mainImageUrl;
+
 }

@@ -1,6 +1,7 @@
 package com.quaint.blog.service;
 
 import com.quaint.blog.dto.base.IdReqDto;
+import com.quaint.blog.dto.web.article.ArticleIdAndNameRespDto;
 import com.quaint.blog.dto.web.article.ArticleInfoRespDto;
 import com.quaint.blog.dto.web.article.GetArticleListRespDto;
 
@@ -38,5 +39,11 @@ public interface ArticleInfoService {
      * @return
      */
     List<GetArticleListRespDto> getArticleBySearch(String str);
+
+    /**
+     * 获取文章浏览排行
+     * @return
+     */
+    List<ArticleIdAndNameRespDto> getArticleByClickRank();
 
 }

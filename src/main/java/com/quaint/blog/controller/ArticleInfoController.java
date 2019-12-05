@@ -2,6 +2,7 @@ package com.quaint.blog.controller;
 
 import com.quaint.blog.constant.ArticleConstant;
 import com.quaint.blog.dto.base.IdReqDto;
+import com.quaint.blog.dto.web.article.ArticleIdAndNameRespDto;
 import com.quaint.blog.dto.web.article.ArticleInfoRespDto;
 import com.quaint.blog.dto.web.article.ArticleSearchReqDto;
 import com.quaint.blog.dto.web.article.GetArticleListRespDto;
@@ -44,5 +45,12 @@ public class ArticleInfoController {
     public List<GetArticleListRespDto> getArticleBySearch(@RequestBody ArticleSearchReqDto dto){
         return articleInfoService.getArticleBySearch(dto.getSearchKey());
     }
+
+    @PostMapping(ArticleConstant.WEB_ARTICLE_CLICK_RANK)
+    public List<ArticleIdAndNameRespDto> getArticleByClickRank(){
+        return articleInfoService.getArticleByClickRank();
+    }
+
+
 
 }

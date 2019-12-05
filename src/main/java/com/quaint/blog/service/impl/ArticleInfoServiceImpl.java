@@ -13,7 +13,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -85,5 +84,8 @@ public class ArticleInfoServiceImpl implements ArticleInfoService {
         return list;
     }
 
-
+    @Override
+    public List<ArticleIdAndNameRespDto> getArticleByClickRank() {
+        return articleInfoMapper.getArticleByClickRank();
+    }
 }
