@@ -15,6 +15,7 @@ public class ArticleConstant {
     public static final String WEB_ARTICLE_BY_ID = "/article/id"; // 文章详情
     public static final String WEB_ARTICLE_SEARCH = "/article/search"; // 文章搜索
     public static final String WEB_ARTICLE_CLICK_RANK = "/article/click/rank"; // 文章点击排行列表
+    public static final String WEB_ARTICLE_BY_LABEL_ID = "/label/article/id"; // 通过标签搜索文章
 
 
 

@@ -34,4 +34,6 @@ public interface ArticleInfoMapper extends BaseMapper<ArticleInfoPo> {
     @Select("SELECT id,article_title,article_abstract,main_image_url FROM article_info ORDER BY read_num desc limit 3")
     List<ArticleIdAndNameRespDto> getArticleByClickRank();
 
+    List<GetArticleListRespDto> getArticleByLabelId(Integer labelId);
+
 }

@@ -53,7 +53,7 @@
         WHERE
             ai_t.show_home = 1
         ORDER BY
-            ai_t.create_time DESC
+            ai_t.update_time DESC
     </select>
     <select id="getArticleList" resultMap="GetArticleListRespDto">
         SELECT
@@ -70,7 +70,7 @@
             LEFT JOIN article_link_label all_t ON ai_t.id = all_t.article_id
             LEFT JOIN label_info li_t ON all_t.label_id = li_t.id
         ORDER BY
-            ai_t.create_time DESC
+            ai_t.update_time DESC
     </select>
     <select id="getArticleById" resultMap="ArticleInfoRespDto">
         SELECT
@@ -116,6 +116,7 @@
         WHERE
             label_id IN ( SELECT label_id FROM article_link_label WHERE article_id = #{id} )
             AND article_id != #{id}
+        -- 有两个标签时 会出现多个，所以 用文章id分组
         GROUP BY
             article_id
     </select>
@@ -138,7 +139,28 @@
             article_title LIKE CONCAT('%',#{str},'%')
             OR article_content LIKE CONCAT('%',#{str},'%')
         ORDER BY
-            ai_t.create_time DESC
+            ai_t.update_time DESC
+    </select>
+
+    <select id="getArticleByLabelId" resultMap="GetArticleListRespDto">
+        SELECT
+            ai_t.id,
+            ai_t.article_title,
+            ai_t.article_abstract,
+            ai_t.member_id,
+            ai_t.read_num,
+            ai_t.main_image_url,
+            ai_t.update_time,
+            li_t.label_name
+        FROM
+            article_link_label all_t
+            LEFT JOIN article_info ai_t ON all_t.article_id = ai_t.id
+            LEFT JOIN label_info li_t ON all_t.label_id = li_t.id
+        WHERE
+            label_id = #{labelId}
+        ORDER BY
+            ai_t.update_time DESC
+
     </select>
 
 

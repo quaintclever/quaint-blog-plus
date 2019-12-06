@@ -46,4 +46,10 @@ public interface ArticleInfoService {
      */
     List<ArticleIdAndNameRespDto> getArticleByClickRank();
 
+    /**
+     * 通过标签id搜索文章列表
+     * @return
+     */
+    List<GetArticleListRespDto> getArticleByLabelId(Integer labelId);
+
 }

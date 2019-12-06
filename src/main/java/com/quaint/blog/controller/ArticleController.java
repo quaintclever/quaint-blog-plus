@@ -51,6 +51,10 @@ public class ArticleController {
         return articleInfoService.getArticleByClickRank();
     }
 
+    @PostMapping(ArticleConstant.WEB_ARTICLE_BY_LABEL_ID)
+    public List<GetArticleListRespDto> getArticleByLabelId(@RequestBody IdReqDto dto){
+        return articleInfoService.getArticleByLabelId(dto.getId());
+    }
 
 
 }

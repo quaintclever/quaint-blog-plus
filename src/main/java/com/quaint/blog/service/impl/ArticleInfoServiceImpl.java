@@ -88,4 +88,10 @@ public class ArticleInfoServiceImpl implements ArticleInfoService {
     public List<ArticleIdAndNameRespDto> getArticleByClickRank() {
         return articleInfoMapper.getArticleByClickRank();
     }
+
+    @Override
+    public List<GetArticleListRespDto> getArticleByLabelId(Integer labelId) {
+        return articleInfoMapper.getArticleByLabelId(labelId);
+    }
+
 }
