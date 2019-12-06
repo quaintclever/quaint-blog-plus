@@ -16,7 +16,7 @@ import java.util.List;
  * @Date: Created in 2019/11/22 11:19
  */
 @RestController
-public class MemberInfoController {
+public class MemberController {
 
     @Autowired
     MemberInfoService memberInfoService;
