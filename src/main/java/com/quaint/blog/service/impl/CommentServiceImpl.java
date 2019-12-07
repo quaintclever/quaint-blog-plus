@@ -5,8 +5,11 @@ import com.quaint.blog.mapper.CommentInfoMapper;
 import com.quaint.blog.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @Description:
@@ -25,8 +28,15 @@ public class CommentServiceImpl implements CommentService {
      * @return
      */
     public List<CommentListDto> getCommentByArticleId(Integer articleId){
-        System.out.println(articleId);
-        return commentInfoMapper.getCommentByArticleId(articleId);
+
+        // 如果没有评论，直接返回空
+        Integer comCount = commentInfoMapper.getCommentCountByArticleId(articleId);
+        if(Objects.isNull(comCount) || comCount.equals(0)) return null;
+
+        //  有评论，返回数据
+        List<CommentListDto> commentList = commentInfoMapper.getCommentByArticleId(articleId);
+        commentList.get(0).setCommentCount(comCount);
+        return commentList;
     }
 
 

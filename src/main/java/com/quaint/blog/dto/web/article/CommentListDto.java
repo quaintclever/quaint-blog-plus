@@ -29,11 +29,16 @@ public class CommentListDto {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private LocalDateTime updateTime;
     // 回复的内容
-    List<ReCommentList> reComments;
+    private List<ReCommentList> reComments;
+
+    // 临时存储该文章总回复数
+    private Integer commentCount;
+
 
     @Data
     private static class ReCommentList{
 
+        private Integer id;
         // 回复者id
         private Integer reMemberId;
         // 回复者昵称

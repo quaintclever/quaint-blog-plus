@@ -13,4 +13,6 @@ public interface CommentInfoMapper {
 
     List<CommentListDto> getCommentByArticleId(Integer articleId);
 
+    Integer getCommentCountByArticleId(Integer articleId);
+
 }

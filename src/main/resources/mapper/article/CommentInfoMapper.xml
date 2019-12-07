@@ -11,6 +11,7 @@
         <result property="updateTime" column="update_time"/>
         <result property="createTime" column="create_time"/>
         <collection property="reComments" ofType="com.quaint.blog.dto.web.article.CommentListDto$ReCommentList">
+            <result property="id" column="re_com_id"/>
             <result property="reMemberId" column="re_member_id"/>
             <result property="reMemberName" column="re_member_name"/>
             <result property="reContent" column="re_content"/>
@@ -18,15 +19,6 @@
             <result property="reUpdateTime" column="re_update_time"/>
             <result property="aitMemberId" column="ait_member_id"/>
             <result property="aitMemberName" column="ait_member_name"/>
-            <!--<constructor>-->
-                <!--<arg column="re_member_id"/>-->
-                <!--<arg column="re_member_name"/>-->
-                <!--<arg column="re_content"/>-->
-                <!--<arg column="re_create_time"/>-->
-                <!--<arg column="re_update_time"/>-->
-                <!--<arg column="ait_member_id"/>-->
-                <!--<arg column="ait_member_name"/>-->
-            <!--</constructor>-->
         </collection>
     </resultMap>
 
@@ -47,6 +39,7 @@
             LEFT JOIN member_info mi_t ON ci_p.member_id = mi_t.id
             LEFT JOIN (
                 SELECT
+                    ci.id as re_com_id,
                     ci.parent_id,
                     mi.id AS re_member_id,
                     mi.nick_name AS re_member_name,
@@ -73,5 +66,14 @@
             AND ci_p.valid = 1
     </select>
 
+    <select id="getCommentCountByArticleId" resultType="java.lang.Integer">
+        SELECT
+            count(1)
+        FROM
+            comment_info
+        WHERE
+            valid = 1
+            AND article_id = #{articleId}
+    </select>
 
 </mapper>
