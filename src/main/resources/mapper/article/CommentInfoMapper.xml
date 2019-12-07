@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.quaint.blog.mapper.CommentInfoMapper">
+
+    <resultMap id="CommentMap" type="com.quaint.blog.dto.web.article.CommentListDto">
+        <id property="id" column="id"/>
+        <result property="articleId" column="article_id"/>
+        <result property="comMemberId" column="com_member_id"/>
+        <result property="comMemberName" column="com_member_name"/>
+        <result property="comContent" column="com_content"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="createTime" column="create_time"/>
+        <collection property="reComments" ofType="com.quaint.blog.dto.web.article.CommentListDto$ReCommentList">
+            <result property="reMemberId" column="re_member_id"/>
+            <result property="reMemberName" column="re_member_name"/>
+            <result property="reContent" column="re_content"/>
+            <result property="reCreateTime" column="re_create_time"/>
+            <result property="reUpdateTime" column="re_update_time"/>
+            <result property="aitMemberId" column="ait_member_id"/>
+            <result property="aitMemberName" column="ait_member_name"/>
+            <!--<constructor>-->
+                <!--<arg column="re_member_id"/>-->
+                <!--<arg column="re_member_name"/>-->
+                <!--<arg column="re_content"/>-->
+                <!--<arg column="re_create_time"/>-->
+                <!--<arg column="re_update_time"/>-->
+                <!--<arg column="ait_member_id"/>-->
+                <!--<arg column="ait_member_name"/>-->
+            <!--</constructor>-->
+        </collection>
+    </resultMap>
+
+    <select id="getCommentByArticleId" resultMap="CommentMap">
+        -- 评论查询逻辑 第一版
+        SELECT
+            ci_p.id,
+            ci_p.article_id,
+            ci_p.member_id AS com_member_id,
+            mi_t.nick_name AS com_member_name,
+            ci_p.comment_content AS com_content,
+            ci_p.update_time,
+            ci_p.create_time,
+            -- 下面为评论回复
+            ci_c.*
+        FROM
+            comment_info ci_p
+            LEFT JOIN member_info mi_t ON ci_p.member_id = mi_t.id
+            LEFT JOIN (
+                SELECT
+                    ci.parent_id,
+                    mi.id AS re_member_id,
+                    mi.nick_name AS re_member_name,
+                    ci.comment_content AS re_content,
+                    ci.create_time as re_create_time,
+			        ci.update_time as re_update_time,
+			        -- 回复@的用户信息
+                    mii.id AS ait_member_id,
+                    mii.nick_name AS ait_member_name
+                FROM
+                    comment_info ci
+                    -- 关联出 回复人的信息
+                    LEFT JOIN member_info mi ON ci.member_id = mi.id
+                    -- 关联 回复中@的人 的信息
+                    LEFT JOIN member_info mii ON ci.re_id = mii.id
+                WHERE
+                    ci.parent_id IS NOT NULL
+                    AND ci.article_id = #{articleId}
+                    AND ci.valid = 1
+            ) AS ci_c ON ci_c.parent_id = ci_p.id
+        WHERE
+            ci_p.parent_id IS NULL
+            AND ci_p.article_id = #{articleId}
+            AND ci_p.valid = 1
+    </select>
+
+
+</mapper>
