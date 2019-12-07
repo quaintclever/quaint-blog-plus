@@ -11,6 +11,7 @@
         <result property="memberId" column="member_id"/>
         <result property="readNum" column="read_num"/>
         <result property="updateTime" column="update_time"/>
+        <result property="createTime" column="create_time"/>
         <collection property="labels" ofType="java.lang.String">
             <constructor>
                 <arg column="label_name"/>
@@ -27,6 +28,7 @@
         <result property="nickName" column="nick_name"/>
         <result property="readNum" column="read_num"/>
         <result property="updateTime" column="update_time"/>
+        <result property="createTime" column="create_time"/>
         <collection property="labels" ofType="java.lang.String">
             <constructor>
                 <arg column="label_name"/>
@@ -45,6 +47,7 @@
             ai_t.read_num,
             ai_t.main_image_url,
             ai_t.update_time,
+            ai_t.create_time,
             li_t.label_name
         FROM
             article_info ai_t
@@ -53,7 +56,7 @@
         WHERE
             ai_t.show_home = 1
         ORDER BY
-            ai_t.update_time DESC
+            ai_t.create_time DESC
     </select>
     <select id="getArticleList" resultMap="GetArticleListRespDto">
         SELECT
@@ -64,13 +67,14 @@
             ai_t.read_num,
             ai_t.main_image_url,
             ai_t.update_time,
+            ai_t.create_time,
             li_t.label_name
         FROM
             article_info ai_t
             LEFT JOIN article_link_label all_t ON ai_t.id = all_t.article_id
             LEFT JOIN label_info li_t ON all_t.label_id = li_t.id
         ORDER BY
-            ai_t.update_time DESC
+            ai_t.create_time DESC
     </select>
     <select id="getArticleById" resultMap="ArticleInfoRespDto">
         SELECT
@@ -81,6 +85,7 @@
             ai_t.read_num,
             ai_t.article_content,
             ai_t.update_time,
+            ai_t.create_time,
             mi_t.nick_name,
             li_t.label_name
         FROM
@@ -130,6 +135,7 @@
             ai_t.read_num,
             ai_t.main_image_url,
             ai_t.update_time,
+            ai_t.create_time,
             li_t.label_name
         FROM
             article_info ai_t
@@ -139,11 +145,12 @@
             article_title LIKE CONCAT('%',#{str},'%')
             OR article_content LIKE CONCAT('%',#{str},'%')
         ORDER BY
-            ai_t.update_time DESC
+            ai_t.create_time DESC
     </select>
 
     <select id="getArticleByLabelId" resultMap="GetArticleListRespDto">
-        SELECT
+
+      SELECT
             ai_t.id,
             ai_t.article_title,
             ai_t.article_abstract,
@@ -151,16 +158,25 @@
             ai_t.read_num,
             ai_t.main_image_url,
             ai_t.update_time,
+            ai_t.create_time,
             li_t.label_name
         FROM
-            article_link_label all_t
-            LEFT JOIN article_info ai_t ON all_t.article_id = ai_t.id
+            article_info ai_t
+            LEFT JOIN article_link_label all_t ON ai_t.id = all_t.article_id
             LEFT JOIN label_info li_t ON all_t.label_id = li_t.id
         WHERE
-            label_id = #{labelId}
+            ai_t.id in (
+                SELECT
+                    ai_t.id
+                FROM
+                    article_link_label all_t
+                    LEFT JOIN article_info ai_t ON all_t.article_id = ai_t.id
+                WHERE
+                    label_id = #{labelId}
+            )
         ORDER BY
-            ai_t.update_time DESC
-
+            ai_t.create_time DESC
+            
     </select>
 
 
