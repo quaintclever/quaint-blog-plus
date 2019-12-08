@@ -42,6 +42,7 @@ public class MemberInfoServiceImpl implements MemberInfoService {
     public CheckLoginRespDto registerIn(RegisterReqDto dto) {
         // 插入用户信息
         MemberInfoPo register = new MemberInfoPo();
+        register.setNickName(dto.getNickName());
         register.setUsername(dto.getUsername());
         register.setPassword(dto.getPwd());
         register.setHeadImgUrl(

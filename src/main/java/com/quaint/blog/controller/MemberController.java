@@ -46,8 +46,7 @@ public class MemberController {
      */
     @PostMapping(MemberConstant.WEB_REGISTER_IN)
     public CheckLoginRespDto registerIn(@RequestBody RegisterReqDto dto){
-
-        return null;
+        return memberInfoService.registerIn(dto);
     }
 
 }
