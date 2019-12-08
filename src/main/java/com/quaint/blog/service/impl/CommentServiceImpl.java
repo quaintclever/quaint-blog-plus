@@ -1,8 +1,11 @@
 package com.quaint.blog.service.impl;
 
+import com.quaint.blog.dto.web.article.AddCommentReqDto;
 import com.quaint.blog.dto.web.article.CommentListDto;
 import com.quaint.blog.mapper.CommentInfoMapper;
+import com.quaint.blog.po.CommentInfoPo;
 import com.quaint.blog.service.CommentService;
+import com.quaint.blog.utils.MapperUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -21,6 +24,22 @@ public class CommentServiceImpl implements CommentService {
 
     @Autowired
     CommentInfoMapper commentInfoMapper;
+
+    /**
+     * blog-1.0.1【 用户评论或留言 】
+     * Be used for [Find in Path...]
+     * Keymap --> (shift+control+F)
+     */
+    @Override
+    public Boolean articleAddComment(AddCommentReqDto addDto) {
+        CommentInfoPo addCom = new CommentInfoPo();
+        addCom.setArticleId(addDto.getArticleId());
+        addCom.setCommentContent(addDto.getCommentContent());
+        addCom.setMemberId(addDto.getMemberId());
+        addCom.setParentId(addDto.getParentId());
+        addCom.setReId(addDto.getReId());
+        return commentInfoMapper.insert(addCom)>0;
+    }
 
     /**
      * 查询评论列表

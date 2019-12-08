@@ -2,6 +2,7 @@ package com.quaint.blog.controller;
 
 import com.quaint.blog.constant.CommentConstant;
 import com.quaint.blog.dto.base.IdReqDto;
+import com.quaint.blog.dto.web.article.AddCommentReqDto;
 import com.quaint.blog.dto.web.article.CommentListDto;
 import com.quaint.blog.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,5 +27,12 @@ public class CommentController {
     public List<CommentListDto> getCommentByArticleId(@RequestBody IdReqDto idReqDto){
         return commentService.getCommentByArticleId(idReqDto.getId());
     }
+
+    @PostMapping(CommentConstant.WEB_ARTICLE_ADD_COMMENT)
+    public Boolean articleAddComment(@RequestBody AddCommentReqDto addDto){
+        return commentService.articleAddComment(addDto);
+    }
+
+
 
 }

@@ -11,6 +11,7 @@ public class CommentConstant {
      * quaint-blog-plus-web 接口
      */
     public static final String WEB_ARTICLE_COMMENT_LIST = "/article/comment/list"; // 评论列表展示
+    public static final String WEB_ARTICLE_ADD_COMMENT = "/article/comment/add"; // 文章增加评论
 
 
     /**

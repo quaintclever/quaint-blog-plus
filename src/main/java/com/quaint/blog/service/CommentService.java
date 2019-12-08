@@ -1,5 +1,6 @@
 package com.quaint.blog.service;
 
+import com.quaint.blog.dto.web.article.AddCommentReqDto;
 import com.quaint.blog.dto.web.article.CommentListDto;
 
 import java.util.List;
@@ -12,5 +13,7 @@ import java.util.List;
 public interface CommentService {
 
     List<CommentListDto> getCommentByArticleId(Integer articleId);
+
+    Boolean articleAddComment(AddCommentReqDto addDto);
 
 }
