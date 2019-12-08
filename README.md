@@ -21,8 +21,8 @@ quaint-blog-plus
 6. 标签云  ok
 
 7. 注册，登录
-8. 留言
-9. 文章评论 
+8. 留言 展示 ok  留言，回复 动作
+9. 文章评论 展示 ok  评论，回复 动作
 
 后台--quaint-blog-plus-admin
 

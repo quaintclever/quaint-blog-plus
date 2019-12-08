@@ -7,6 +7,7 @@
         <result property="articleId" column="article_id"/>
         <result property="comMemberId" column="com_member_id"/>
         <result property="comMemberName" column="com_member_name"/>
+        <result property="comMemberHead" column="com_member_head"/>
         <result property="comContent" column="com_content"/>
         <result property="updateTime" column="update_time"/>
         <result property="createTime" column="create_time"/>
@@ -14,6 +15,7 @@
             <result property="id" column="re_com_id"/>
             <result property="reMemberId" column="re_member_id"/>
             <result property="reMemberName" column="re_member_name"/>
+            <result property="reMemberHead" column="re_member_head"/>
             <result property="reContent" column="re_content"/>
             <result property="reCreateTime" column="re_create_time"/>
             <result property="reUpdateTime" column="re_update_time"/>
@@ -29,6 +31,7 @@
             ci_p.article_id,
             ci_p.member_id AS com_member_id,
             mi_t.nick_name AS com_member_name,
+            mi_t.head_img_url AS com_member_head,
             ci_p.comment_content AS com_content,
             ci_p.update_time,
             ci_p.create_time,
@@ -43,6 +46,7 @@
                     ci.parent_id,
                     mi.id AS re_member_id,
                     mi.nick_name AS re_member_name,
+                    mi.head_img_url AS re_member_head,
                     ci.comment_content AS re_content,
                     ci.create_time as re_create_time,
 			        ci.update_time as re_update_time,

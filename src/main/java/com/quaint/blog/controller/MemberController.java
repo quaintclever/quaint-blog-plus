@@ -31,9 +31,9 @@ public class MemberController {
     }
 
     /**
-     * 登录校验 测试代码
+     * 登录校验
      */
-    @PostMapping(MemberConstant.ADMIN_CHECK_LOGIN)
+    @PostMapping(MemberConstant.WEB_CHECK_LOGIN)
     public CheckLoginRespDto checkLogin(@RequestBody CheckLoginReqDto dto){
 //        System.out.println(dto.toString());
         return memberInfoService.checkLogin(dto);

@@ -12,5 +12,6 @@ public class CheckLoginRespDto {
 
     private Integer id;
     private String nickName;
+    private String headImgUrl;
 
 }

@@ -22,6 +22,8 @@ public class CommentListDto {
     private Integer comMemberId;
     // 评论者的昵称
     private String comMemberName;
+    // 评论者头像
+    private String comMemberHead;
     // 评论的内容
     private String comContent;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
@@ -43,6 +45,8 @@ public class CommentListDto {
         private Integer reMemberId;
         // 回复者昵称
         private String reMemberName;
+        // 回复者头像
+        private String reMemberHead;
         // 回复内容
         private String reContent;
         @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
