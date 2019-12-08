@@ -3,6 +3,7 @@ package com.quaint.blog.controller;
 import com.quaint.blog.constant.MemberConstant;
 import com.quaint.blog.dto.admin.member.CheckLoginReqDto;
 import com.quaint.blog.dto.admin.member.CheckLoginRespDto;
+import com.quaint.blog.dto.admin.member.RegisterReqDto;
 import com.quaint.blog.po.MemberInfoPo;
 import com.quaint.blog.service.MemberInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +36,18 @@ public class MemberController {
      */
     @PostMapping(MemberConstant.WEB_CHECK_LOGIN)
     public CheckLoginRespDto checkLogin(@RequestBody CheckLoginReqDto dto){
-//        System.out.println(dto.toString());
         return memberInfoService.checkLogin(dto);
+    }
+
+    /**
+     * 注册账号
+     * @param dto
+     * @return
+     */
+    @PostMapping(MemberConstant.WEB_REGISTER_IN)
+    public CheckLoginRespDto registerIn(@RequestBody RegisterReqDto dto){
+
+        return null;
     }
 
 }
