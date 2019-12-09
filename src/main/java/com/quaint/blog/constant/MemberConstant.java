@@ -12,7 +12,7 @@ public class MemberConstant {
      * quaint-blog-plus-web 接口
      */
     public static final String WEB_CHECK_LOGIN = "/member/check/login"; // 登录校验
-    public static final String WEB_REGISTER_IN = "/member/register/in"; // 登录校验
+    public static final String WEB_REGISTER_IN = "/member/register/in"; // 注册
 
 
     /**
