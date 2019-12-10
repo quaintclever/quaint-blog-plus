@@ -14,9 +14,6 @@ import java.util.List;
  */
 public interface MemberInfoService {
 
-    // 测试接口
-    List<MemberInfoPo> getMemberList();
-
     // 登录校验接口
     CheckLoginRespDto checkLogin(CheckLoginReqDto dto);
 

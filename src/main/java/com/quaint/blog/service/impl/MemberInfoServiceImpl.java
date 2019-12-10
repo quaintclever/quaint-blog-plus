@@ -27,12 +27,6 @@ public class MemberInfoServiceImpl implements MemberInfoService {
     @Autowired
     MemberInfoMapper memberInfoMapper;
 
-    @Override
-    public List<MemberInfoPo> getMemberList() {
-        QueryWrapper<MemberInfoPo> queryWrapper = new QueryWrapper<>();
-        return memberInfoMapper.selectList(queryWrapper);
-    }
-
     /**
      * blog-1.0.1【 用户注册功能，校验尚未完善 】
      * Be used for [Find in Path...]
