@@ -1,6 +1,7 @@
 package com.quaint.blog.dto.web.article;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.quaint.blog.dto.web.label.LabelRespDto;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -28,7 +29,7 @@ public class GetArticleListRespDto {
     private String mainImageUrl;
 
     // '标签 eg： 1,2,3 --> 博客,技术,java'
-    private List<String> labels;
+    private List<LabelRespDto> labels;
 
     // '阅读数'
     private Long readNum;
