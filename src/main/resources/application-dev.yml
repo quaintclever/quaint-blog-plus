@@ -1,8 +1,10 @@
 #配置服务器
 server:
-  port: 8080
+  port: 8081
 #配置spring
 spring:
+  application:
+    name: quaint-blog-plus
   datasource:
     name: quaint
     url: jdbc:mysql://localhost:3306/quaint_blog_plus
@@ -14,9 +16,25 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
+  mvc:
+    servlet:
+      path: /quaint-service
 mybatis-plus:
-  mapper-locations: classpath:/mapper/*Mapper.xml
+  mapper-locations: classpath:/mapper/*/*Mapper.xml
   type-aliases-package: com.quaint.blog.po
   configuration:
     map-underscore-to-camel-case: true
-#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#日志配置
+#日志输出级别 TRACE > DEBUG > INFO > WARN > ERROR
+logging:
+  #系统日志文件输出地址
+  path: ./logs
+  #系统日志输出级别
+  #sys系统输出将过滤器的日志级别配置为level
+  sys:
+    level: INFO
+  #console控制台打印日志将当日志级别等于或高于临界值时
+  console:
+    level: INFO
+#    调用日志
