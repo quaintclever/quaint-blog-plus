@@ -1,33 +1,27 @@
 # quaint-blog-plus
-quaint-blog-plus
 
 2019-11-20 staring
 
-个人博客 v1 版本 功能接口
+**show url:**   quaint-aini.com
 
-前台--quaint-blog-plus-web
+### quaint-blog-plus
 
-1. 首页分页展示文章接口（首页，学无止境） ok
-2. 文章详情接口（学无止境） ok
+spring boot
 
-2.1 增加阅读数，上下文章推荐 ok
+maven
 
-2.2 相关文章 ok
+### quaint-blog-plus-web
 
-3. 站内搜索（标题，内容） ok
+vue
 
-5. 点击排行文章列表展示  ok
+### quaint-blog-plus-admin
 
-6. 标签云  ok
+vue
 
-7. 注册，登录 ok
-8. 留言 展示 ok  留言，回复 动作 ok
-9. 文章评论 展示 ok  评论，回复 动作 ok
 
-后台--quaint-blog-plus-admin
 
-1. 登录
-2. 文章管理
-3. 网站设置(栏目名称修改)
+
+
+
 
     
