@@ -1,5 +1,6 @@
 ### quaint ###
 *prod.yml
+keystore.p12
 
 ### IntelliJ IDEA ###
 .idea
