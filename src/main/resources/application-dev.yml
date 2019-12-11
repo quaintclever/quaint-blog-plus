@@ -37,4 +37,5 @@ logging:
   #console控制台打印日志将当日志级别等于或高于临界值时
   console:
     level: INFO
-#    调用日志
+jwt:
+  secret-key: pleaseStar=>quaint-blog-plus

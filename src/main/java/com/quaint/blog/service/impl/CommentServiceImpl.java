@@ -2,6 +2,7 @@ package com.quaint.blog.service.impl;
 
 import com.quaint.blog.dto.web.article.AddCommentReqDto;
 import com.quaint.blog.dto.web.article.CommentListDto;
+import com.quaint.blog.helper.MUOContext;
 import com.quaint.blog.mapper.CommentInfoMapper;
 import com.quaint.blog.po.CommentInfoPo;
 import com.quaint.blog.service.CommentService;
@@ -32,6 +33,9 @@ public class CommentServiceImpl implements CommentService {
      */
     @Override
     public Boolean articleAddComment(AddCommentReqDto addDto) {
+
+        System.out.println(MUOContext.getMemberId());
+
         CommentInfoPo addCom = new CommentInfoPo();
         addCom.setArticleId(addDto.getArticleId());
         addCom.setCommentContent(addDto.getCommentContent());
