@@ -7,12 +7,14 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.quaint.blog.conf.JWTProperties;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.quaint.blog.config.JWTProperties;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,13 +23,17 @@ import java.util.Map;
  * @author: qi cong
  * @Date: Created in 2019-12-11 11:34
  */
-@EnableConfigurationProperties(JWTProperties.class)
+@Slf4j
+@Component
 public class JwtUtils {
 
-    private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
+    // 需要静态注入的 对象
+    private static JWTProperties jwtProperties;
 
     @Autowired
-    private static JWTProperties jwtProperties;
+    public void setJwtProperties(JWTProperties jwtProperties) {
+        JwtUtils.jwtProperties = jwtProperties;
+    }
 
     /**
      * 生成token
@@ -60,7 +66,7 @@ public class JwtUtils {
             DecodedJWT jwt = verifier.verify(token);
             map = jwt.getClaims();
         } catch (Exception e) {
-            logger.warn("utils -> 验证token失败");
+            log.warn("utils -> 验证token失败");
             return null;
         }
         Map<String, String> resultMap = new HashMap<>(map.size());

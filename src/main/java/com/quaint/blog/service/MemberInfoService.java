@@ -2,6 +2,7 @@ package com.quaint.blog.service;
 
 import com.quaint.blog.dto.web.member.CheckLoginReqDto;
 import com.quaint.blog.dto.web.member.CheckLoginRespDto;
+import com.quaint.blog.dto.web.member.MemberInfoRespDto;
 import com.quaint.blog.dto.web.member.RegisterReqDto;
 import com.quaint.blog.po.MemberInfoPo;
 
@@ -20,6 +21,8 @@ public interface MemberInfoService {
     // 用户注册接口
     CheckLoginRespDto registerIn(RegisterReqDto dto);
 
+    // 通过id获取用户信息
+    MemberInfoRespDto getMemberInfoById(Integer id);
 
 
     /**

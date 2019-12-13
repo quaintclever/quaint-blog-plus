@@ -12,6 +12,4 @@ import java.lang.annotation.*;
 @Documented
 public @interface CheckLogin {
 
-    boolean value() default true;
-
 }

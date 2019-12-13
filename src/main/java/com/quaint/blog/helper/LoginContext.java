@@ -4,11 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @Description: 用户上下文环境
+ * @Description: 登录上下文环境
  * @author: qi cong
  * @Date: Created in 2019-12-11 09:30
  */
-public class MUOContext {
+public class LoginContext {
 
     private static ThreadLocal<Map<String,Object>> threadLocalMap = new ThreadLocal<>();
 

@@ -1,4 +1,4 @@
-package com.quaint.blog.conf;
+package com.quaint.blog.config;
 
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
