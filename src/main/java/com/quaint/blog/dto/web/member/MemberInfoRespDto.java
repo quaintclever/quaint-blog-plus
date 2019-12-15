@@ -10,7 +10,6 @@ import lombok.Data;
 @Data
 public class MemberInfoRespDto {
 
-    private Integer id;
     private String nickName;
     private String headImgUrl;
 

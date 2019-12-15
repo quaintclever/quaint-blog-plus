@@ -7,12 +7,11 @@ import com.quaint.blog.dto.web.member.CheckLoginRespDto;
 import com.quaint.blog.dto.web.member.MemberInfoRespDto;
 import com.quaint.blog.dto.web.member.RegisterReqDto;
 import com.quaint.blog.helper.LoginContext;
-import com.quaint.blog.po.MemberInfoPo;
 import com.quaint.blog.service.MemberInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @Description:

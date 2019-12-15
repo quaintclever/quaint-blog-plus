@@ -58,7 +58,6 @@ public class MemberInfoServiceImpl implements MemberInfoService {
         MemberInfoPo memberPo = memberInfoMapper.selectById(id);
         if (Objects.nonNull(memberPo)){
             MemberInfoRespDto respDto = new MemberInfoRespDto();
-            respDto.setId(id);
             respDto.setNickName(memberPo.getNickName());
             respDto.setHeadImgUrl(memberPo.getHeadImgUrl());
             return respDto;
