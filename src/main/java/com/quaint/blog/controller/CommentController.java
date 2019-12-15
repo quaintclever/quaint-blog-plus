@@ -1,5 +1,6 @@
 package com.quaint.blog.controller;
 
+import com.quaint.blog.annotation.CheckLogin;
 import com.quaint.blog.constant.CommentConstant;
 import com.quaint.blog.dto.base.IdReqDto;
 import com.quaint.blog.dto.web.article.AddCommentReqDto;
@@ -29,6 +30,7 @@ public class CommentController {
     }
 
     @PostMapping(CommentConstant.WEB_ARTICLE_ADD_COMMENT)
+    @CheckLogin
     public Boolean articleAddComment(@RequestBody AddCommentReqDto addDto){
         return commentService.articleAddComment(addDto);
     }

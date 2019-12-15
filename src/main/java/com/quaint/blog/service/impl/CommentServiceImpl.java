@@ -2,15 +2,13 @@ package com.quaint.blog.service.impl;
 
 import com.quaint.blog.dto.web.article.AddCommentReqDto;
 import com.quaint.blog.dto.web.article.CommentListDto;
+import com.quaint.blog.helper.LoginContext;
 import com.quaint.blog.mapper.CommentInfoMapper;
 import com.quaint.blog.po.CommentInfoPo;
 import com.quaint.blog.service.CommentService;
-import com.quaint.blog.utils.MapperUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -35,7 +33,7 @@ public class CommentServiceImpl implements CommentService {
         CommentInfoPo addCom = new CommentInfoPo();
         addCom.setArticleId(addDto.getArticleId());
         addCom.setCommentContent(addDto.getCommentContent());
-        addCom.setMemberId(addDto.getMemberId());
+        addCom.setMemberId(LoginContext.getMemberId());
         addCom.setParentId(addDto.getParentId());
         addCom.setReId(addDto.getReId());
         return commentInfoMapper.insert(addCom)>0;

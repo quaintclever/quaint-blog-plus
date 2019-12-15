@@ -12,10 +12,10 @@
         <result property="readNum" column="read_num"/>
         <result property="updateTime" column="update_time"/>
         <result property="createTime" column="create_time"/>
-        <collection property="labels" ofType="java.lang.String">
-            <constructor>
-                <arg column="label_name"/>
-            </constructor>
+        <collection property="labels" ofType="com.quaint.blog.dto.web.label.LabelRespDto">
+            <result property="id" column="label_id"/>
+            <result property="labelName" column="label_name"/>
+            <result property="labelType" column="label_type"/>
         </collection>
     </resultMap>
     <!-- 文章详情map -->
@@ -29,10 +29,10 @@
         <result property="readNum" column="read_num"/>
         <result property="updateTime" column="update_time"/>
         <result property="createTime" column="create_time"/>
-        <collection property="labels" ofType="java.lang.String">
-            <constructor>
-                <arg column="label_name"/>
-            </constructor>
+        <collection property="labels" ofType="com.quaint.blog.dto.web.label.LabelRespDto">
+            <result property="id" column="label_id"/>
+            <result property="labelName" column="label_name"/>
+            <result property="labelType" column="label_type"/>
         </collection>
     </resultMap>
 
@@ -48,6 +48,8 @@
             ai_t.main_image_url,
             ai_t.update_time,
             ai_t.create_time,
+            li_t.id as label_id,
+            li_t.label_type,
             li_t.label_name
         FROM
             article_info ai_t
@@ -68,6 +70,7 @@
             ai_t.main_image_url,
             ai_t.update_time,
             ai_t.create_time,
+            li_t.id as label_id,
             li_t.label_name
         FROM
             article_info ai_t
@@ -87,6 +90,7 @@
             ai_t.update_time,
             ai_t.create_time,
             mi_t.nick_name,
+            li_t.id as label_id,
             li_t.label_name
         FROM
             article_info ai_t
@@ -136,6 +140,7 @@
             ai_t.main_image_url,
             ai_t.update_time,
             ai_t.create_time,
+            li_t.id as label_id,
             li_t.label_name
         FROM
             article_info ai_t
@@ -159,6 +164,7 @@
             ai_t.main_image_url,
             ai_t.update_time,
             ai_t.create_time,
+            li_t.id as label_id,
             li_t.label_name
         FROM
             article_info ai_t

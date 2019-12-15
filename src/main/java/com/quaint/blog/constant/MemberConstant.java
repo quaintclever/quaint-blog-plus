@@ -7,12 +7,19 @@ package com.quaint.blog.constant;
  */
 public class MemberConstant {
 
+    /**
+     * 业务常量
+     */
     public static final String DEFAULT_MEMBER_HEAD_IMG = "http://kshop-pro-data.oss-cn-hangzhou.aliyuncs.com/other_picture/user/%d.jpg";
+
     /**
      * quaint-blog-plus-web 接口
      */
     public static final String WEB_CHECK_LOGIN = "/member/check/login"; // 登录校验
     public static final String WEB_REGISTER_IN = "/member/register/in"; // 注册
+    public static final String WEB_GET_MEMBER_INFO = "/member/info"; // 获取用户信息
+
+
 
 
     /**

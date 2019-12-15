@@ -1,6 +1,7 @@
 package com.quaint.blog.dto.web.article;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.quaint.blog.dto.web.label.LabelRespDto;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -44,7 +45,7 @@ public class ArticleInfoRespDto {
     private String nickName;
 
     // 标签名称
-    private List<String> labels;
+    private List<LabelRespDto> labels;
 
     // --- 扩展字段 ---
     // 上一篇

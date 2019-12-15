@@ -10,8 +10,6 @@ import lombok.Data;
 @Data
 public class CheckLoginRespDto {
 
-    private Integer id;
-    private String nickName;
-    private String headImgUrl;
+    private String accessToken;
 
 }
