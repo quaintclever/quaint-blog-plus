@@ -8,32 +8,48 @@ import java.util.List;
 
 /**
  * @Description:
- * @author: qi cong
- * @Date: Created in 2019-12-07 18:43
+ * @author qi cong
+ * @date Created in 2019-12-07 18:43
  */
 @Data
 public class CommentListDto {
 
-    // 评论列表id
+    /**
+     * 评论列表id
+     */
     private Integer id;
-    // 评论的对应文章id
+    /**
+     * 评论的对应文章id
+     */
     private Integer articleId;
-    // 评论者的id
+    /**
+     * 评论者的id
+     */
     private Integer comMemberId;
-    // 评论者的昵称
+    /**
+     * 评论者的昵称
+     */
     private String comMemberName;
-    // 评论者头像
+    /**
+     * 评论者头像
+     */
     private String comMemberHead;
-    // 评论的内容
+    /**
+     * 评论的内容
+     */
     private String comContent;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy/MM/dd HH:mm:ss")
     private LocalDateTime createTime;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime updateTime;
-    // 回复的内容
+    /**
+     * 回复的内容
+     */
     private List<ReCommentList> reComments;
 
-    // 临时存储该文章总回复数
+    /**
+     * 临时存储该文章总回复数
+     */
     private Integer commentCount;
 
 
