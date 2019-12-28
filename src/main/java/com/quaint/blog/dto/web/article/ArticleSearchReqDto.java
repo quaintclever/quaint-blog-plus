@@ -4,8 +4,8 @@ import lombok.Data;
 
 /**
  * @Description:
- * @author: qi cong
- * @Date: Created in 2019-12-05 14:26
+ * @author qi cong
+ * @date Created in 2019-12-05 14:26
  */
 @Data
 public class ArticleSearchReqDto {

@@ -10,12 +10,12 @@ spring:
     url: jdbc:mysql://localhost:3306/quaint_blog_plus
     username: root
     password: root
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
   #时间转换处理
-  jackson:
-    date-format: yyyy-MM-dd HH:mm:ss
-    time-zone: GMT+8
+#  jackson:
+#    date-format: yyyy-MM-dd HH:mm:ss
+#    time-zone: GMT+8
   mvc:
     servlet:
       path: /quaint-service

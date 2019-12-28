@@ -19,27 +19,35 @@ public class GetArticleListRespDto {
 
     private Integer memberId;
 
-    // '文章标题'
+    /**
+     * '文章标题'
+     */
     private String articleTitle;
 
-    // '文章简介，摘要'
+    /**
+     * '文章简介，摘要'
+     */
     private String articleAbstract;
 
-    // '首页主图url'
+    /**
+     * '首页主图url'
+     */
     private String mainImageUrl;
 
-    // '标签 eg： 1,2,3 --> 博客,技术,java'
+    /**
+     * '标签 eg： 1,2,3 --> 博客,技术,java'
+     */
     private List<LabelRespDto> labels;
 
-    // '阅读数'
+    /**
+     * '阅读数'
+     */
     private Long readNum;
 
-    // '修改时间'
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private LocalDateTime updateTime;
 
-    // 创建时间
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private LocalDateTime createTime;
 
 

@@ -12,9 +12,13 @@ public class AddCommentReqDto {
 
     private Integer articleId;
     private Integer memberId;
-    // 父评论id
+    /**
+     * 父评论id
+     */
     private Integer parentId;
-    // 回复的用户id
+    /**
+     * 回复的用户id
+     */
     private Integer reId;
     private String commentContent;
 
