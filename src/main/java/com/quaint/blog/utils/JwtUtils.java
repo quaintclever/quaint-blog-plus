@@ -7,14 +7,11 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.quaint.blog.config.JWTProperties;
+import com.quaint.blog.config.JwtProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,11 +24,13 @@ import java.util.Map;
 @Component
 public class JwtUtils {
 
-    // 需要静态注入的 对象
-    private static JWTProperties jwtProperties;
+    /**
+     * 需要静态注入的 对象
+     */
+    private static JwtProperties jwtProperties;
 
     @Autowired
-    public void setJwtProperties(JWTProperties jwtProperties) {
+    public void setJwtProperties(JwtProperties jwtProperties) {
         JwtUtils.jwtProperties = jwtProperties;
     }
 

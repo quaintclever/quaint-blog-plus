@@ -5,12 +5,11 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 /**
- * Created by quaint on 2019-12-11
- * @description
+ * @author  by quaint on 2019-12-11
  */
 @ConfigurationProperties(prefix = "jwt")
 @Component
-public class JWTProperties {
+public class JwtProperties {
 
     private String secretKey;
 
