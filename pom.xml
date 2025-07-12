@@ -29,7 +29,7 @@
         <mybatis-plus.version>3.0-RC2</mybatis-plus.version>
         <lombok.version>1.16.10</lombok.version>
         <modelmapper.version>2.3.2</modelmapper.version>
-        <commons-lang3.version>3.4</commons-lang3.version>
+        <commons-lang3.version>3.18.0</commons-lang3.version>
         <auth0.version>3.4.0</auth0.version>
 
     </properties>
